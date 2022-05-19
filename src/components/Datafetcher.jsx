@@ -22,15 +22,14 @@ function Datafetcher() {
     fetchIncident();
   }, []);
 
-
-  return (
-    <div>
+    return (
+      <div>
         {incidents.map((incident, i) => (
-          <p>{incident.lat + " : " + incident.lon}</p>
+          <p key={i} >{incident.lat + " : " + incident.lon}</p>
         ))
-      }
-    </div>
-  )
+        }
+      </div>
+    )
 }
 
 export default Datafetcher
