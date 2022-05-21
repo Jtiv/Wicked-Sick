@@ -4,12 +4,21 @@ import axios from 'axios'
 function Datafetcher() {
 
   const [incidents, setIncidents] = useState([]);
-  // const reverseGeoCode = async (search) => {
-  //   //logic to include search term in api call
-    
-  //   await axios.get(dataLink);
-  //   console.log(response.data);
-  // }  
+  const [geoCode, setGeoCode] = useState({});
+  const [token, setToken] = useState('');
+
+  const reverseGeoCode = async (search) => {
+    //logic to include search term in api call  
+    const params = {
+      access_key: 'd082a061bc23cc199563ea78cab61972',
+      query: "1600 Pennsylvania Ave NW, Washington DC"
+        // `${search}`
+    }
+
+    let response = await axios.get(
+      `http://api.positionstack.com/v1/forward`, { params });
+      console.log(response.data);
+  }  
 
   const fetchIncident = async () => {
     let response = await axios.get(
@@ -19,7 +28,9 @@ function Datafetcher() {
   }
 
   useEffect(() => {
+    setToken(localStorage.getItem(`${process.env.API_KEY}`))
     fetchIncident();
+    reverseGeoCode();
   }, []);
 
     return (
