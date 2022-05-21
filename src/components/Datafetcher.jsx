@@ -5,7 +5,7 @@ function Datafetcher() {
 
   const [incidents, setIncidents] = useState([]);
   const [geoCode, setGeoCode] = useState({});
-  const [token, setToken] = useState('');
+  
 
   const reverseGeoCode = async (search) => {
     //logic to include search term in api call  
@@ -16,7 +16,8 @@ function Datafetcher() {
     }
 
     let response = await axios.get(
-      `http://api.positionstack.com/v1/forward`, { params });
+      `http://api.positionstack.com/v1/forward`, { params }
+    );
       console.log(response.data);
   }  
 
@@ -28,7 +29,7 @@ function Datafetcher() {
   }
 
   useEffect(() => {
-    setToken(localStorage.getItem(`${process.env.API_KEY}`))
+    
     fetchIncident();
     reverseGeoCode();
   }, []);
