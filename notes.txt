@@ -1,0 +1,1 @@
+db query to find returns between (lat high and low, and long high and low) --> db.incidents.find({ lat: { $gt: 37.8 , $lt: 38 }, lon: { $gt: -123, $lt: -122.33 }})
