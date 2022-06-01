@@ -4,7 +4,7 @@ import ReverseGeoCoder from './ReverseGeoCoder';
 
 function Datafetcher() {
   
-  //Methinks that the actual returned component cant be accessed, set and passed to another object all in the same command frame, needs to be broken up into more components.
+  //Methinks that the actual returned component cant be accessed, set and passed to another object all in the same common frame, needs to be broken up into more components.
 
   const [incidents, setIncidents] = useState([]);
   // const [inputSearch, setInputSearch] = useState('');
@@ -26,7 +26,7 @@ function Datafetcher() {
     return (
       <div>
 
-        <ReverseGeoCoder lat={ incidents[0].lat } lon={ incidents[0].lon }/>
+        <ReverseGeoCoder lat={incidents[1].lat} lon={incidents[1].lon} address={incidents[1].location}/>
 
         {incidents.map((incident, i) => (
           <p key={i} >{incident.lat + " : " + incident.lon}</p>
@@ -35,10 +35,9 @@ function Datafetcher() {
       </div>
     )
 
+  }
 
-
-
-  } else {
+  else {
     return (
       <div>
          {incidents.map((incident, i) => (
