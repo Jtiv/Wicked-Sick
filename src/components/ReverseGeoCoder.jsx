@@ -44,7 +44,7 @@ function ReverseGeoCoder(props) {
     <div>
       <h1>ReverseGeoCoder</h1>
       {geoCodes.map((geoCode, i) => (
-          <p key={i} >{geoCode.name}</p>
+          <p key={i} >{geoCode.label}</p>
         ))
         }
     </div>
