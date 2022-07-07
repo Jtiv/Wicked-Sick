@@ -9,7 +9,7 @@ function MapComponent() {
   const [lng] = useState(139.753);
   const [lat] = useState(35.6844);
   const [zoom] = useState(14);
-  const [API_KEY] = useState("ph3JTDTUCEk1iznShG7x");
+  const [API_KEY] = useState(process.env.REACT_APP_API_KEY);
 
   useEffect(() => {
     if (map.current) return; //stops map from intializing more than once
