@@ -41,8 +41,11 @@ function ReverseGeoCoder(props) {
 
 
   return (
+    //geoCode is a copied individual from array of geocodes. 
+    //Label is field of data in set that I think feels closest to address.
     <div>
       <h1>ReverseGeoCoder</h1>
+      blah
       {geoCodes.map((geoCode, i) => (
           <p key={i} >{geoCode.label}</p>
         ))
