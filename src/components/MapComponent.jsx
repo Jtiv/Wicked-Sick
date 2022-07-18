@@ -15,7 +15,7 @@ function MapComponent() {
     if (map.current) return; //stops map from intializing more than once
     map.current = new maplibregl.Map({
       container: mapContainer.current,
-      style: `https://api.maptiler.com/maps/streets/style.json?key=${API_KEY}`,
+      style: `https://api.maptiler.com/maps/191d9465-f0a6-470f-861b-a595e61264fa/style.json?key=${API_KEY}`,
       center: [lng, lat],
       zoom: zoom
     });
