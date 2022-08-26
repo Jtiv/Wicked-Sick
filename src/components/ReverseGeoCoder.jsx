@@ -34,7 +34,7 @@ function ReverseGeoCoder(props) {
   };  
 
   useEffect(() => {
-    forwardGeoCode(props.address);
+    //forwardGeoCode(props.address);
     reverseGeoCode(props.lat, props.lon);
   },[props])
 
