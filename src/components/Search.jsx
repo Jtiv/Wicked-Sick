@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 
-function SearchMap() {
+function Search() {
   const [Address, setAddress] = useState([]);
 
 
@@ -25,4 +25,4 @@ function SearchMap() {
   )
 }
 
-export default SearchMap
+export default Search
