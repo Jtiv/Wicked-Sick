@@ -5,16 +5,21 @@ import './MapComponent.css';
 // Displays map
 // Needs points passed to it in order to make markers and attach to map
 
-function MapComponent() {
+function MapComponent(mapCenter) {
 
   const mapContainer = useRef(null);
   const map = useRef(null);
-  let [lng] = useState(139.753);
-  let [lat] = useState(35.6844);
+  const [lng, setLng] = useState(139.753);
+  const [lat, setLat] = useState(35.6844);
   const [zoom] = useState(14);
   const [API_KEY] = useState(process.env.REACT_APP_API_KEY);
 
   useEffect(() => {
+
+    if (mapCenter && map.current) {
+      setLng(mapCenter[0])
+      setLat(mapCenter[1])
+    }
     if (map.current) return; //stops map from intializing more than once
     map.current = new maplibregl.Map({
       container: mapContainer.current,
@@ -24,7 +29,7 @@ function MapComponent() {
     });
     
 
-  },[lng,lat]);
+  },[mapCenter]);
 
   return (
     <div className="map-wrap">

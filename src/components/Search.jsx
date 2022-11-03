@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 
-function Search() {
+function Search(props) {
   const [Address, setAddress] = useState([]);
 
 
@@ -11,6 +11,7 @@ function Search() {
 
   const handleSubmit = (s) => {
     s.preventDefault()
+    props.recenterMap(Address)
     console.log("fetch the address: " + Address)
   }
 

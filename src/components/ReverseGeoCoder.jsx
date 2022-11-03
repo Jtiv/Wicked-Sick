@@ -15,7 +15,7 @@ function ReverseGeoCoder(props) {
     let response = await axios.get(
       `http://api.positionstack.com/v1/reverse`, { params }
     );
-    console.log(response.data.data[0]);
+    console.log("reverse" + response.data.data[0]);
     setGeoCodes(response.data.data);
   };  
 
@@ -29,7 +29,7 @@ function ReverseGeoCoder(props) {
     let response = await axios.get(
       `http://api.positionstack.com/v1/forward`, { params }
     );
-    console.log(response.data.data[0]);
+    console.log("forward" + response.data.data[0]);
     setForwardGC(response.data.data);
   };  
 
