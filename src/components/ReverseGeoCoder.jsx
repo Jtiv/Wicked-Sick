@@ -3,7 +3,6 @@ import axios from 'axios';
 
 function ReverseGeoCoder(props) {
   const [geoCodes, setGeoCodes] = useState([]);
-  const [forwardGC, setForwardGC] = useState([]);
   
   const reverseGeoCode = async (lat, lon) => {
     //logic to include search term in api call  
@@ -15,24 +14,10 @@ function ReverseGeoCoder(props) {
     let response = await axios.get(
       `http://api.positionstack.com/v1/reverse`, { params }
     );
-    console.log("reverse" + response.data.data[0]);
+    //console.log(response.data.data[0].latitude);
     setGeoCodes(response.data.data);
   };  
-
-  const forwardGeoCode = async (address) => {
-    //logic to include search term in api call  
-    const params = {
-      access_key: 'd082a061bc23cc199563ea78cab61972',
-      query: `${address}`
-    };
-
-    let response = await axios.get(
-      `http://api.positionstack.com/v1/forward`, { params }
-    );
-    console.log("forward" + response.data.data[0]);
-    setForwardGC(response.data.data);
-  };  
-
+  
   useEffect(() => {
     //forwardGeoCode(props.address);
     reverseGeoCode(props.lat, props.lon);
