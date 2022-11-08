@@ -7,7 +7,7 @@ function App() {
 
   //pass setters and lift state up from components. 
 
-  const[mapCenter, setMapCenter] = useState([])
+  const [mapCenter, setMapCenter] = useState([])
   const [markerState, setMarkerState] = useState([])
 
   const storeIncidentArray = (incArr) => {
